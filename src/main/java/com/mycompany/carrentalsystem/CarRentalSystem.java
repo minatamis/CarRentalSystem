@@ -1,27 +1,9 @@
 package com.mycompany.carrentalsystem;
 
-import java.awt.event.*;
-import javax.swing.*;
-
-/**
- *
- * @author Jem
- */
-public class CarRentalSystem extends JFrame implements ActionListener
+public class CarRentalSystem
 {
-    static JFrame CarRentWindow;
     public static void main(String[] args) 
     {
-        CarRentWindow = new JFrame("Rent a Car");
-        CarRentWindow.setSize(450,350);
-        CarRentWindow.show();
-        CarRentWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        System.out.println("Hello World!!");
     }
-    public void actionPerformed(ActionEvent e)
-    {
-        
-        
-    }
-    
 }
