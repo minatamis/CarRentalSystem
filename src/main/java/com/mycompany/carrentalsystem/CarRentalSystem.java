@@ -73,7 +73,7 @@ public class CarRentalSystem extends JFrame implements ActionListener
         carRentalPanel.add(carModelCombo);
         carRentalPanel.add(checkAvailabilityButton);
         
-        //add to customerInfoPanel
+        //add to customerInfoPanel (experiment only)
         carRentalPanel.add(nameLabel);
         carRentalPanel.add(userNameTextField);
         carRentalPanel.add(ageLabel);
