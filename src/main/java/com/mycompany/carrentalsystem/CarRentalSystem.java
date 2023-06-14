@@ -62,7 +62,7 @@ public class CarRentalSystem extends JFrame implements ActionListener
         
         //panels
         JPanel carRentalPanel = new JPanel();
-        //JPanel customerInfoPanel = new JPanel();
+        JPanel customerInfoPanel = new JPanel();
         
         //add to carRentalPanel
         carRentalPanel.add(brandLabel);
