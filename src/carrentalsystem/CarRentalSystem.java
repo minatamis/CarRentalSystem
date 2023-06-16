@@ -86,7 +86,7 @@ public class CarRentalSystem extends JFrame implements ActionListener
 //        carRentalPanel.add(userAddressTextField);
 //        carRentalPanel.add(submitInfoButton);
 //        
-//        ///window
+//        //window
 //        carRentWindow.add(carRentalPanel);
 //        //carRentWindow.add(customerInfoPanel);
 //        carRentWindow.setSize(350,350);

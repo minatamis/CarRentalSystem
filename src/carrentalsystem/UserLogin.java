@@ -32,6 +32,7 @@ public class UserLogin //extends JFrame
         registerButton = new JButton("Register");
         registerButton.setPreferredSize(new Dimension(100, 25));
         
+        //panel
         JPanel userLogInPanel = new JPanel();
         
         userLogInPanel.add(clientUsernameLabel);
@@ -41,7 +42,7 @@ public class UserLogin //extends JFrame
         userLogInPanel.add(logInButton);
         userLogInPanel.add(registerButton);
         
-        ///window
+        //window
         userLoginWindow.add(userLogInPanel);
         userLoginWindow.setSize(300,150);
         userLoginWindow.show();
