@@ -92,6 +92,8 @@ public class CarRentalSystem extends JFrame implements ActionListener
 //        carRentWindow.setSize(350,350);
 //        carRentWindow.show();
 //        carRentWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        UserLogin landingPage = new UserLogin();
+        landingPage.setVisible(true);
         
     }
     public void actionPerformed(ActionEvent e)
