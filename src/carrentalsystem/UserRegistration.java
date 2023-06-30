@@ -1,20 +1,16 @@
 package carrentalsystem;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
-public class UserRegistration
+public class UserRegistration extends JFrame implements ActionListener
 {
     static JFrame userRegistrationWindow;
-    static JTextField userNameTextField;
-    static JTextField userAgeTextField;
-    static JTextField userEmailTextField;
-    static JTextField userNumberTextField;
-    static JTextField userAddressTextField;
-    static JTextField clientUsernameTextField;
+    static JTextField userNameTextField, userAgeTextField, userEmailTextField, userNumberTextField, userAddressTextField, clientUsernameTextField;
     static JPasswordField clientPasswordTextField;
     static JButton submitInfoButton;
     
-    public UserRegistration()
+    UserRegistration()
     {
         userRegistrationWindow = new JFrame("Register");
         try 
@@ -65,15 +61,18 @@ public class UserRegistration
         //window
         userRegistrationWindow.add(userRegistrationPanel);
         userRegistrationWindow.setSize(350,350);
-        userRegistrationWindow.show();
+        userRegistrationWindow.setVisible(true);
         userRegistrationWindow.setLocationRelativeTo(null);
         userRegistrationWindow.setResizable(false);
         userRegistrationWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
-
-    void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        
+        
     }
     
 }
