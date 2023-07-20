@@ -1,16 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.mavenproject5;
 
 import java.sql.*;
 
-public class Mavenproject5 {
+public class InsertInto {
 
     public static void main(String[] args) {
-        String name = "Eunice";
-        String age = "20";
+        String name = "Jem";
+        String age = "19";
         try {
                     Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/testest",
                         "root", "poginijem");
@@ -18,7 +14,7 @@ public class Mavenproject5 {
                     Statement st = connection.createStatement();
 
                     st.executeUpdate("insert into testing2 (NAME, AGE)" + "values ('"+name+"','"+age+"')");
-                    
+                    System.out.println("Tapos na");
                 } catch (SQLException sqlException) {
                     sqlException.printStackTrace();
                 }
