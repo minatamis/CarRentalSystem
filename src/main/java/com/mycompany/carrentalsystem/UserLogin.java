@@ -58,48 +58,84 @@ public class UserLogin extends JFrame implements ActionListener
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+ 
     }
     
     @Override
     public void actionPerformed(ActionEvent e)
     {
-//        String username = clientUsernameTextField.getText();
-//        String password = clientPasswordTextField.getText();
-//        if(e.getSource() == registerButton)
-//        {
-//            dispose();
-//            UserRegistration userReg = new UserRegistration();
-//            userReg.setVisible(true);
-//        }
-//        else if(e.getSource() == logInButton)
-//        {
-//            try {
-//                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "root");
-//
-//                PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT userEmail, userPassword FROM carrentalsystem.userinfo WHERE userEmail=? and userPassword=?");
-//
-//                st.setString(1, username);
-//                st.setString(2, password);
-//                ResultSet rs = st.executeQuery();
-//                if (rs.next()) 
-//                {
-//                    dispose();
-//                    CarRentalInterface home = new CarRentalInterface();
-//                    home.setVisible(true);
-//                    JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
-//                } 
-//                else 
-//                {
-//                    JOptionPane.showMessageDialog(btnNewButton, "Wrong Username & Password");
-//                }
-//            } 
-//            catch (SQLException sqlException) 
-//            {
-//                sqlException.printStackTrace();
-//            }
-//        }
-//        
-//    }
+        String username = clientUsernameTextField.getText();
+        String password = clientPasswordTextField.getText();
+        if(e.getSource() == registerButton)
+        {
+            dispose();
+            UserRegistration userReg = new UserRegistration();
+            userReg.setVisible(true);
+        }
+        else if(e.getSource() == logInButton)
+        {
+            try {
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "root");
 
+                PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT userEmail, userPassword FROM carrentalsystem.userinfo WHERE userEmail=? and userPassword=?");
+
+                st.setString(1, username);
+                st.setString(2, password);
+                ResultSet rs = st.executeQuery();
+                if (rs.next()) 
+                {
+                    dispose();
+                    CarRentalInterface home = new CarRentalInterface();
+                    home.setVisible(true);
+                    JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
+                } 
+                else 
+                {
+                    JOptionPane.showMessageDialog(btnNewButton, "Wrong Username & Password");
+                }
+            } 
+            catch (SQLException sqlException) 
+            {
+                sqlException.printStackTrace();
+            }
+        }
+        
+    }
+        String username = clientUsernameTextField.getText();
+        String password = String.valueOf(clientPasswordTextField.getPassword());
+        if(e.getSource() == registerButton)
+        {
+            dispose();
+            UserRegistration userReg = new UserRegistration();
+            userReg.setVisible(true);
+        }
+        else if(e.getSource() == logInButton)
+        {
+            try 
+            {
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "root");
+
+                PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT userEmail, userPassword FROM userinfo WHERE userEmail=? and userPassword=?");
+
+                st.setString(1, username);
+                st.setString(2, password);
+                ResultSet rs = st.executeQuery();
+                if (rs.next()) 
+                {
+                    dispose();
+                    CarRentalInterface home = new CarRentalInterface();
+                    home.setVisible(true);
+                    //JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
+                } 
+                else 
+                {
+                    //JOptionPane.showMessageDialog(btnNewButton, "Wrong Username & Password");
+                }
+            } 
+            catch (SQLException sqlException) 
+            {
+                sqlException.printStackTrace();
+            }
+        }   
+    }
 }
