@@ -65,7 +65,7 @@ public class UserLogin extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
         String username = clientUsernameTextField.getText();
-        String password = clientPasswordTextField.getText();
+        String password = String.valueOf(clientPasswordTextField.getPassword());
         if(e.getSource() == registerButton)
         {
             dispose();
@@ -74,10 +74,11 @@ public class UserLogin extends JFrame implements ActionListener
         }
         else if(e.getSource() == logInButton)
         {
-            try {
+            try 
+            {
                 Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "root");
 
-                PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT userEmail, userPassword FROM carrentalsystem.userinfo WHERE userEmail=? and userPassword=?");
+                PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT userEmail, userPassword FROM userinfo WHERE userEmail=? and userPassword=?");
 
                 st.setString(1, username);
                 st.setString(2, password);
@@ -87,11 +88,11 @@ public class UserLogin extends JFrame implements ActionListener
                     dispose();
                     CarRentalInterface home = new CarRentalInterface();
                     home.setVisible(true);
-                    JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
+                    //JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
                 } 
                 else 
                 {
-                    JOptionPane.showMessageDialog(btnNewButton, "Wrong Username & Password");
+                    //JOptionPane.showMessageDialog(btnNewButton, "Wrong Username & Password");
                 }
             } 
             catch (SQLException sqlException) 
