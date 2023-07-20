@@ -32,8 +32,10 @@ public class CarRentalInterface extends JFrame implements ActionListener {
         //for car rental
         Label brandLabel = new Label("Brand:");
         brandLabel.setBounds(50, 20, 40, 30);
-        carBrandCombo = new JComboBox();
+        String[] brand = {"Honda", "Toyota", "Hyundai", "Ford"};
+        carBrandCombo = new JComboBox(brand);
         carBrandCombo.setBounds(130, 20, 150, 25);
+        
         Label transmissionLabel = new Label("Transmission Type:");
         transmissionLabel.setBounds(25,70,95,30);
         carTransmissionCombo = new JComboBox();
@@ -42,10 +44,12 @@ public class CarRentalInterface extends JFrame implements ActionListener {
 //        modelLabel.setBounds(45, 180, 50, 30);
 //        carModelCombo = new JComboBox();
 //        carModelCombo.setBounds(130, 180, 150, 25);
+
         checkAvailabilityButton = new JButton("Check Availability");
         checkAvailabilityButton.setBounds(15, 120, 300,30);
         modelLabel = new Label("Car Model:");
         modelLabel.setBounds(45, 180, 60, 30);
+        
         carModelCombo = new JComboBox();
         carModelCombo.setBounds(130, 180, 150, 25);
         modelLabel.setVisible(false);
