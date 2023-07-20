@@ -8,7 +8,7 @@ public class UserRegistration extends JFrame implements ActionListener
     static JFrame userRegistrationWindow;
     static JTextField userNameTextField, userAgeTextField, userEmailTextField, userNumberTextField, userAddressTextField, clientUsernameTextField;
     static JPasswordField clientPasswordTextField;
-    static JButton submitInfoButton;
+    static JButton submitInfoButton, backButton;
     
     UserRegistration()
     {

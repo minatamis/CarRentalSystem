@@ -33,6 +33,9 @@ public class UserLogin extends JFrame implements ActionListener
         registerButton = new JButton("Register");
         registerButton.setPreferredSize(new Dimension(100, 25));
         
+        logInButton.addActionListener(this);
+        registerButton.addActionListener(this);
+        
         //panel
         JPanel userLogInPanel = new JPanel();
         
@@ -56,7 +59,16 @@ public class UserLogin extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        
+        if(e.getSource() == registerButton)
+        {
+            dispose();
+            UserRegistration userReg = new UserRegistration();
+            userReg.setVisible(true);
+        }
+        else if(e.getSource() == logInButton)
+        {
+            
+        }
         
     }
 
