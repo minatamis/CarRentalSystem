@@ -67,7 +67,8 @@ public class UserLogin extends JFrame implements ActionListener
         }
         else if(e.getSource() == logInButton)
         {
-            
+            CarRentalInterface carInterface = new CarRentalInterface();
+            carInterface.setVisible(true);
         }
         
     }
