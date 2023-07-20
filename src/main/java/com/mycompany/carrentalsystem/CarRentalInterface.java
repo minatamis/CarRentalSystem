@@ -10,8 +10,9 @@ public class CarRentalInterface extends JFrame implements ActionListener {
     JComboBox carBrandCombo, carTransmissionCombo, carModelCombo;
     JButton checkAvailabilityButton;
     Label modelLabel;
+    UserLogin thisUser = new UserLogin();
     
-    CarRentalInterface(UserInfo thisUser)
+    CarRentalInterface()
     {
         setSize(350,350);  
         setTitle("Rent a Car");
@@ -41,10 +42,7 @@ public class CarRentalInterface extends JFrame implements ActionListener {
         String[] trans = {"Automatic", "Manual"};
         carTransmissionCombo = new JComboBox(trans);
         carTransmissionCombo.setBounds(130,70,150, 25);
-//        Label modelLabel = new Label("Car Model:");
-//        modelLabel.setBounds(45, 180, 50, 30);
-//        carModelCombo = new JComboBox();
-//        carModelCombo.setBounds(130, 180, 150, 25);
+
 
         checkAvailabilityButton = new JButton("Check Availability");
         checkAvailabilityButton.setBounds(15, 120, 300,30);
@@ -56,9 +54,9 @@ public class CarRentalInterface extends JFrame implements ActionListener {
         modelLabel.setVisible(false);
         carModelCombo.setVisible(false);
         
-        Label user = new Label("User: " + thisUser.userName);
-        user.setBounds(10, 200, 200,25);
-        add(user);
+//        Label user = new Label("User: " + thisUser.name);
+//        user.setBounds(10, 200, 200,25);
+//        add(user);
             
         add(brandLabel);
         add(carBrandCombo);
@@ -75,10 +73,6 @@ public class CarRentalInterface extends JFrame implements ActionListener {
     {
         if(e.getSource() == checkAvailabilityButton)
         {
-//            Label modelLabel = new Label("Car Model:");
-//            modelLabel.setBounds(45, 180, 60, 30);
-//            carModelCombo = new JComboBox();
-//            carModelCombo.setBounds(130, 180, 150, 25);
             modelLabel.setVisible(true);
             carModelCombo.setVisible(true);
             add(modelLabel);
