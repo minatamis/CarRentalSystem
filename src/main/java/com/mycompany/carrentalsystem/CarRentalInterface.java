@@ -9,10 +9,17 @@ public class CarRentalInterface extends JFrame implements ActionListener {
     static JFrame carRentWindow;
     static JComboBox carBrandCombo, carTransmissionCombo, carModelCombo;
     static JButton checkAvailabilityButton;
+    static Label modelLabel;
     
     CarRentalInterface()
     {
+        setSize(350,350);  
         setTitle("Rent a Car");
+        setLayout(null);
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try 
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -23,44 +30,57 @@ public class CarRentalInterface extends JFrame implements ActionListener {
         }
         
         //for car rental
-        Label brandLabel = new Label("Brand");
-        carBrandCombo = new JComboBox();
-        carBrandCombo.setPreferredSize(new Dimension(200, 25));
-        Label transmissionLabel = new Label("Transmission Type");
-        carTransmissionCombo = new JComboBox();
-        carTransmissionCombo.setPreferredSize(new Dimension(200, 25));
-        Label modelLabel = new Label("Car Model");
-        carModelCombo = new JComboBox();
-        carModelCombo.setPreferredSize(new Dimension(200, 25));
+        Label brandLabel = new Label("Brand:");
+        brandLabel.setBounds(50, 20, 40, 30);
+        String[] brand = {"Honda", "Toyota", "Hyundai", "Nissan", "Mitsubishi", "Mazda"};
+        carBrandCombo = new JComboBox(brand);
+        carBrandCombo.setBounds(130, 20, 150, 25);
+        
+        Label transmissionLabel = new Label("Transmission Type:");
+        transmissionLabel.setBounds(25,70,95,30);
+        String[] trans = {"Automatic", "Manual"};
+        carTransmissionCombo = new JComboBox(trans);
+        carTransmissionCombo.setBounds(130,70,150, 25);
+//        Label modelLabel = new Label("Car Model:");
+//        modelLabel.setBounds(45, 180, 50, 30);
+//        carModelCombo = new JComboBox();
+//        carModelCombo.setBounds(130, 180, 150, 25);
+
         checkAvailabilityButton = new JButton("Check Availability");
-        checkAvailabilityButton.setPreferredSize(new Dimension(300, 25));
+        checkAvailabilityButton.setBounds(15, 120, 300,30);
+        modelLabel = new Label("Car Model:");
+        modelLabel.setBounds(45, 180, 60, 30);
         
-        //panels
-        JPanel carRentalPanel = new JPanel();
-        
-        //add to carRentalPanel
-        carRentalPanel.add(brandLabel);
-        carRentalPanel.add(carBrandCombo);
-        carRentalPanel.add(transmissionLabel);
-        carRentalPanel.add(carTransmissionCombo);
-        carRentalPanel.add(modelLabel);
-        carRentalPanel.add(carModelCombo);
-        carRentalPanel.add(checkAvailabilityButton);
-        
-        //window
-        add(carRentalPanel);
-        setSize(350,350);        
-        setLocationRelativeTo(null);
-        setVisible(true);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        carModelCombo = new JComboBox();
+        carModelCombo.setBounds(130, 180, 150, 25);
+        modelLabel.setVisible(false);
+        carModelCombo.setVisible(false);
+            
+        add(brandLabel);
+        add(carBrandCombo);
+        add(transmissionLabel);
+        add(carTransmissionCombo);
+//      add(modelLabel);
+//      add(carModelCombo);
+        add(checkAvailabilityButton);
+        checkAvailabilityButton.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        
-        
+        if(e.getSource() == checkAvailabilityButton)
+        {
+//            Label modelLabel = new Label("Car Model:");
+//            modelLabel.setBounds(45, 180, 60, 30);
+//            carModelCombo = new JComboBox();
+//            carModelCombo.setBounds(130, 180, 150, 25);
+            modelLabel.setVisible(true);
+            carModelCombo.setVisible(true);
+            add(modelLabel);
+            add(carModelCombo);   
+        }
+
     }
     
 }
