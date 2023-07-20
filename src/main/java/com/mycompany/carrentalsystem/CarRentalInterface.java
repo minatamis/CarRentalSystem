@@ -38,8 +38,7 @@ public class CarRentalInterface extends JFrame implements ActionListener {
         
         Label transmissionLabel = new Label("Transmission Type:");
         transmissionLabel.setBounds(25,70,95,30);
-        String[] trans = {"Automatic", "Manual"};
-        carTransmissionCombo = new JComboBox(trans);
+        carTransmissionCombo = new JComboBox();
         carTransmissionCombo.setBounds(130,70,150, 25);
 //        Label modelLabel = new Label("Car Model:");
 //        modelLabel.setBounds(45, 180, 50, 30);
@@ -64,6 +63,8 @@ public class CarRentalInterface extends JFrame implements ActionListener {
 //      add(carModelCombo);
         add(checkAvailabilityButton);
         checkAvailabilityButton.addActionListener(this);
+        
+
     }
     
     @Override
@@ -75,10 +76,20 @@ public class CarRentalInterface extends JFrame implements ActionListener {
 //            modelLabel.setBounds(45, 180, 60, 30);
 //            carModelCombo = new JComboBox();
 //            carModelCombo.setBounds(130, 180, 150, 25);
+
             modelLabel.setVisible(true);
             carModelCombo.setVisible(true);
             add(modelLabel);
             add(carModelCombo);   
+
+//            modelLabel.setVisible(true);
+//            carModelCombo.setVisible(true);
+//            add(modelLabel);
+//            add(carModelCombo);   
+         
+            CarRentalTable table = new CarRentalTable();
+            table.setVisible(true);
+
         }
 
     }
