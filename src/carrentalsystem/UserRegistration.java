@@ -12,7 +12,7 @@ public class UserRegistration extends JFrame implements ActionListener
     
     UserRegistration()
     {
-        userRegistrationWindow = new JFrame("Register");
+        setTitle("Register");
         try 
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -59,12 +59,12 @@ public class UserRegistration extends JFrame implements ActionListener
         userRegistrationPanel.add(submitInfoButton);
         
         //window
-        userRegistrationWindow.add(userRegistrationPanel);
-        userRegistrationWindow.setSize(350,350);
-        userRegistrationWindow.setVisible(true);
-        userRegistrationWindow.setLocationRelativeTo(null);
-        userRegistrationWindow.setResizable(false);
-        userRegistrationWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(userRegistrationPanel);
+        setSize(350,350);
+        setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
     

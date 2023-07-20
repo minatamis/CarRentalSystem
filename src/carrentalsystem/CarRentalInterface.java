@@ -12,7 +12,7 @@ public class CarRentalInterface extends JFrame implements ActionListener {
     
     CarRentalInterface()
     {
-        carRentWindow = new JFrame("Rent a Car");
+        setTitle("Rent a Car");
         try 
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -48,12 +48,12 @@ public class CarRentalInterface extends JFrame implements ActionListener {
         carRentalPanel.add(checkAvailabilityButton);
         
         //window
-        carRentWindow.add(carRentalPanel);
-        carRentWindow.setSize(350,350);        
-        carRentWindow.setLocationRelativeTo(null);
-        carRentWindow.setVisible(true);
-        carRentWindow.setResizable(false);
-        carRentWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(carRentalPanel);
+        setSize(350,350);        
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     @Override
