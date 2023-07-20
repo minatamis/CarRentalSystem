@@ -1,4 +1,10 @@
 package com.mycompany.carrentalsystem;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -8,7 +14,7 @@ public class UserRegistration extends JFrame implements ActionListener
     static JFrame userRegistrationWindow;
     static JTextField userNameTextField, userAgeTextField, userEmailTextField, userNumberTextField, userAddressTextField;
     static JPasswordField clientPasswordTextField;
-    static JButton submitInfoButton, backButton;
+    static JButton submitInfoButton, backButton, btnNewButton;
     
     UserRegistration()
     {
@@ -43,6 +49,7 @@ public class UserRegistration extends JFrame implements ActionListener
         add(ageLabel);
         userAgeTextField = new JTextField(30);
         userAgeTextField.setBounds(70, 40, 40, 25);
+        userAgeTextField.setText("0");
         add(userAgeTextField);
 
         Label numberLabel = new Label("Mobile:");
@@ -94,17 +101,54 @@ public class UserRegistration extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getSource() == backButton)
+        String name = userNameTextField.getText();
+        int age = Integer.parseInt(userAgeTextField.getText());
+        String mobile = userNumberTextField.getText();
+        String address = userAddressTextField.getText();
+        String email = userEmailTextField.getText();
+        String password = clientPasswordTextField.getText();
+        
+        String insertStatement = "INSERT INTO userinfo (userName, userPassword, userAge, userEmail, userNumber, userAddress, carInRent) VALUES (?, ?, ?, ?, ?, ?, '')";
+
+        if (e.getSource() == backButton)
         {
             dispose();
             UserLogin userLog = new UserLogin();
             userLog.setVisible(true);
         }
-        else if(e.getSource() == submitInfoButton)
+        else if (e.getSource() == submitInfoButton)
         {
-            
+            try 
+            {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem", "root", "Jem4764?");
+
+                PreparedStatement st = connection.prepareStatement(insertStatement);
+
+                st.setString(1, name);
+                st.setString(2, password);
+                st.setInt(3, age);
+                st.setString(4, email);
+                st.setString(5, mobile);
+                st.setString(6, address);
+
+                int rowsAffected = st.executeUpdate();
+                if (rowsAffected > 0)
+                {
+                    dispose();
+                    UserLogin logIn = new UserLogin();
+                    logIn.setVisible(true);
+                    JOptionPane.showMessageDialog(btnNewButton, "You've been Registered Successfully");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(btnNewButton, "Please Try Again");
+                }
+            }
+            catch (SQLException sqlException)
+            {
+                sqlException.printStackTrace();
+            }
         }
-        
     }
     
 }
