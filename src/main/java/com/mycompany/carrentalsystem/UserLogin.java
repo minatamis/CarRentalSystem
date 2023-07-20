@@ -16,6 +16,9 @@ public class UserLogin extends JFrame implements ActionListener
     JTextField clientUsernameTextField;
     JPasswordField clientPasswordTextField;
     JButton logInButton, registerButton, btnNewButton;
+    String name, mobile, address, email, pass, carInRent;
+    int age;
+    UserInfo user = new UserInfo();
     
     UserLogin()
     {
@@ -77,7 +80,7 @@ public class UserLogin extends JFrame implements ActionListener
             try {
                 Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "Jem4764?");
 
-                PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT userEmail, userPassword FROM carrentalsystem.userinfo WHERE userEmail=? and userPassword=?");
+                PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT * FROM userinfo WHERE userEmail=? and userPassword=?");
 
                 st.setString(1, username);
                 st.setString(2, password);
@@ -85,7 +88,27 @@ public class UserLogin extends JFrame implements ActionListener
                 if (rs.next()) 
                 {
                     dispose();
-                    CarRentalInterface home = new CarRentalInterface();
+                    while(rs.next())
+                    {
+                        name = rs.getString("userName");
+                        age = Integer.parseInt(rs.getString("userAge"));
+                        mobile = rs.getString("userNumber");
+                        address = rs.getString("userAddress");
+                        email = rs.getString("userEmail");
+                        pass = rs.getString("userPassword");
+                        carInRent = rs.getString("carInRent");
+
+                        
+                    }
+                    user.userName = name;
+                    user.userAge = age;
+                    user.userNumber = mobile;
+                    user.userAddress = address;
+                    user.userEmail = email;
+                    user.userPassword = pass;
+                    user.carInRent = carInRent;
+                    
+                    CarRentalInterface home = new CarRentalInterface(user);
                     home.setVisible(true);
                     JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
                 } 

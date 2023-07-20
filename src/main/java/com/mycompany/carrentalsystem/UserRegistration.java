@@ -11,10 +11,10 @@ import javax.swing.*;
 
 public class UserRegistration extends JFrame implements ActionListener
 {
-    static JFrame userRegistrationWindow;
-    static JTextField userNameTextField, userAgeTextField, userEmailTextField, userNumberTextField, userAddressTextField;
-    static JPasswordField clientPasswordTextField;
-    static JButton submitInfoButton, backButton, btnNewButton;
+    JFrame userRegistrationWindow;
+    JTextField userNameTextField, userAgeTextField, userEmailTextField, userNumberTextField, userAddressTextField;
+    JPasswordField clientPasswordTextField;
+    JButton submitInfoButton, backButton, btnNewButton;
     
     UserRegistration()
     {
@@ -107,8 +107,9 @@ public class UserRegistration extends JFrame implements ActionListener
         String address = userAddressTextField.getText();
         String email = userEmailTextField.getText();
         String password = clientPasswordTextField.getText();
+        String rent = "";
         
-        String insertStatement = "INSERT INTO userinfo (userName, userPassword, userAge, userEmail, userNumber, userAddress, carInRent) VALUES (?, ?, ?, ?, ?, ?, '')";
+        String insertStatement = "INSERT INTO userinfo (userName, userPassword, userAge, userEmail, userNumber, userAddress, carInRent) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         if (e.getSource() == backButton)
         {
@@ -130,6 +131,7 @@ public class UserRegistration extends JFrame implements ActionListener
                 st.setString(4, email);
                 st.setString(5, mobile);
                 st.setString(6, address);
+                st.setString(7,rent);
 
                 int rowsAffected = st.executeUpdate();
                 if (rowsAffected > 0)

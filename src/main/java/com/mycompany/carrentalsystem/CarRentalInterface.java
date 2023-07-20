@@ -6,19 +6,19 @@ import javax.swing.*;
 
 public class CarRentalInterface extends JFrame implements ActionListener {
     
-    static JFrame carRentWindow;
-    static JComboBox carBrandCombo, carTransmissionCombo, carModelCombo;
-    static JButton checkAvailabilityButton;
-    static Label modelLabel;
+    JFrame carRentWindow;
+    JComboBox carBrandCombo, carTransmissionCombo, carModelCombo;
+    JButton checkAvailabilityButton;
+    Label modelLabel;
     
-    CarRentalInterface()
+    CarRentalInterface(UserInfo thisUser)
     {
         setSize(350,350);  
         setTitle("Rent a Car");
         setLayout(null);
         setLocationRelativeTo(null);
         setVisible(true);
-        setResizable(false);
+        //setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try 
         {
@@ -55,6 +55,10 @@ public class CarRentalInterface extends JFrame implements ActionListener {
         carModelCombo.setBounds(130, 180, 150, 25);
         modelLabel.setVisible(false);
         carModelCombo.setVisible(false);
+        
+        Label user = new Label("User: " + thisUser.userName);
+        user.setBounds(10, 200, 200,25);
+        add(user);
             
         add(brandLabel);
         add(carBrandCombo);

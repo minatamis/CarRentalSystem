@@ -8,5 +8,6 @@ public class UserInfo
     public String userEmail;
     public String userNumber;
     public String userAddress;
+    public String carInRent;
             
 }
