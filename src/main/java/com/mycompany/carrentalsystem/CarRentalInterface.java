@@ -2,6 +2,11 @@ package com.mycompany.carrentalsystem;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.*;
 
 public class CarRentalInterface extends JFrame implements ActionListener {
@@ -73,8 +78,31 @@ public class CarRentalInterface extends JFrame implements ActionListener {
     {
         if(e.getSource() == checkAvailabilityButton)
         {
+            String SelectedModel = carBrandCombo.getSelectedItem().toString();
+            String SelectedTransmission = carBrandCombo.getSelectedItem().toString();
+            try {
+                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/testest",
+                        "root", "poginijem");
+
+                    PreparedStatement st = (PreparedStatement) connection
+                        .prepareStatement("Select * from vehicles where Brand=? and Transmission=?");
+                    
+                    st.setString(1, SelectedModel);
+                    st.setString(2, SelectedTransmission);
+                    
+                    ResultSet rs = st.executeQuery();
+                   if (rs.next())
+                   {
+                       CarRentalTable table = new CarRentalTable();
+                       table.setVisible(true);
+                   }
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+            
             modelLabel.setVisible(true);
             carModelCombo.setVisible(true);
+            
             add(modelLabel);
             add(carModelCombo);   
         }
