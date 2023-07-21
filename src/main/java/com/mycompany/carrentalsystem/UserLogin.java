@@ -76,7 +76,7 @@ public class UserLogin extends JFrame implements ActionListener
         else if(e.getSource() == logInButton)
         {
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/testest","root", "poginijem");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "Jem4764?");
 
                 PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT * FROM userinfo WHERE userEmail=? and userPassword=?");
 
@@ -106,7 +106,7 @@ public class UserLogin extends JFrame implements ActionListener
 //                    user.userPassword = pass;
 //                    user.carInRent = carInRent;
                     
-                    CarRentalInterface home = new CarRentalInterface();
+                    CarRentalTable home = new CarRentalTable();
                     home.setVisible(true);
                     JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
                 } 
