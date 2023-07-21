@@ -7,14 +7,14 @@ import javax.swing.*;
 
 public class UserLogin extends JFrame implements ActionListener
 {
-    static JFrame userLoginWindow;
-    static JTextField clientUsernameTextField;
-    static JPasswordField clientPasswordTextField;
-    static JButton logInButton, registerButton;
+    JFrame userLoginWindow;
+    JTextField clientUsernameTextField;
+    JPasswordField clientPasswordTextField;
+    JButton logInButton, registerButton;
     
     UserLogin()
     {
-        userLoginWindow = new JFrame("Log In");
+        setTitle("Log in");
         try 
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -33,6 +33,9 @@ public class UserLogin extends JFrame implements ActionListener
         registerButton = new JButton("Register");
         registerButton.setPreferredSize(new Dimension(100, 25));
         
+        logInButton.addActionListener(this);
+        registerButton.addActionListener(this);
+        
         //panel
         JPanel userLogInPanel = new JPanel();
         
@@ -44,19 +47,28 @@ public class UserLogin extends JFrame implements ActionListener
         userLogInPanel.add(registerButton);
         
         //window
-        userLoginWindow.add(userLogInPanel);
-        userLoginWindow.setSize(300,150);
-        userLoginWindow.setVisible(true);
-        userLoginWindow.setLocationRelativeTo(null);
-        userLoginWindow.setResizable(false);
-        userLoginWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(userLogInPanel);
+        setSize(300,150);
+        setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
     
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        
+        if(e.getSource() == registerButton)
+        {
+            dispose();
+            UserRegistration userReg = new UserRegistration();
+            userReg.setVisible(true);
+        }
+        else if(e.getSource() == logInButton)
+        {
+            
+        }
         
     }
 
