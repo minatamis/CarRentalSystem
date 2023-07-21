@@ -105,9 +105,11 @@ public class UserLogin extends JFrame implements ActionListener
 //                    user.userEmail = email;
 //                    user.userPassword = pass;
 //                    user.carInRent = carInRent;
-                    
                     CarRentalTable home = new CarRentalTable();
+                    Confirmation conf = new Confirmation();
                     home.setVisible(true);
+                    conf.setVisible(true);
+                    
                     JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
                 } 
                 else 
