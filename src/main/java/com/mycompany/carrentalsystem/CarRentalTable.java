@@ -73,6 +73,8 @@ public class CarRentalTable extends JFrame implements ActionListener
         if(e.getSource() == rentButton)
         {
             System.out.println("Car Rented Successfully: " + Data);
+            RentInfo rent = new RentInfo();
+            rent.setVisible(true);
             String updateInUserStatement = "UPDATE userinfo SET carInRent=? WHERE userEmail=? and userPassword=?";
             String updateInCarStatement = "UPDATE car SET Availability=? WHERE Model=?";
             
