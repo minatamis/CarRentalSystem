@@ -133,6 +133,5 @@ public class CarRentalTable extends JFrame implements ActionListener
 //            });  
             System.out.println("Car Rented Successfully: " + Data);   
         }
-    }
     
 }
