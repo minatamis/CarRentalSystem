@@ -52,10 +52,10 @@ public class CarRentalTable extends JFrame implements ActionListener
 //              //System.out.println("Car Rented Successfully: " + Data);    
 //            }       
 //            });  
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "Jem4764?");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/carentalsystem","root", "poginijem");
 
             
-            String query = "SELECT * FROM car";
+            String query = "SELECT * FROM cars";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 

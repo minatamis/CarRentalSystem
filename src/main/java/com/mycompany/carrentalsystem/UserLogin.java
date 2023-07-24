@@ -76,7 +76,7 @@ public class UserLogin extends JFrame implements ActionListener
         else if(e.getSource() == logInButton)
         {
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/testest","root", "poginijem");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carentalsystem","root", "poginijem");
 
                 PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT * FROM userinfo WHERE userEmail=? and userPassword=?");
 
