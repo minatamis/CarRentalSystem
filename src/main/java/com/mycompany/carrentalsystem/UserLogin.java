@@ -12,7 +12,7 @@ import javax.swing.*;
 
 public class UserLogin extends JFrame implements ActionListener
 {
-    JFrame userLoginWindow;
+    
     JTextField clientUsernameTextField;
     JPasswordField clientPasswordTextField;
     JButton logInButton, registerButton, btnNewButton;
@@ -21,6 +21,12 @@ public class UserLogin extends JFrame implements ActionListener
     UserLogin()
     {
         setTitle("Log in");
+        setLayout(null);
+        setSize(900,600);
+        setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try 
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -30,36 +36,60 @@ public class UserLogin extends JFrame implements ActionListener
             System.err.println(e.getMessage());
         }
         
-        Label clientUsernameLabel = new Label("Username :");
-        clientUsernameTextField = new JTextField(20);
-        Label clientPasswordLabel = new Label("Password :");
-        clientPasswordTextField = new JPasswordField(20);
+        Label titleLabel = new Label("LOGIN");
+        Font titleFont = new Font("Arial", Font.BOLD | Font.BOLD, 50);
+        titleLabel.setBounds(370,60,300,50);
+        titleLabel.setFont(titleFont);
+        
+        
+        Label clientUsernameLabel = new Label("Username:");
+        Font clientUsernameFont = new Font("Arial", Font.PLAIN, 40);
+        clientUsernameLabel.setFont(clientUsernameFont);
+        clientUsernameLabel.setBounds(70,190,200,40);
+        
+        clientUsernameTextField = new JTextField();
+        Font clientUsernameTFFont = new Font("Arial", Font.PLAIN, 40);
+        clientUsernameTextField.setFont(clientUsernameTFFont);
+        clientUsernameTextField.setBounds(290, 190, 520, 40);
+        
+  
+        Label clientPasswordLabel = new Label("Password:");
+        Font ageFont = new Font("Arial", Font.PLAIN, 40);
+        clientPasswordLabel.setFont(ageFont);
+        clientPasswordLabel.setBounds(70, 290, 200, 40);
+        
+        clientPasswordTextField = new JPasswordField();
+        Font ageTFFont = new Font("Arial", Font.PLAIN, 40);
+        clientPasswordTextField.setFont(ageTFFont);
+        clientPasswordTextField.setBounds(290, 290, 520, 40);
+        clientPasswordTextField.setText("0");
+        
+        
         logInButton = new JButton("Log In");
-        logInButton.setPreferredSize(new Dimension(100, 25));
+        Font backBTNFont = new Font("Arial", Font.PLAIN, 40);
+        logInButton.setFont(backBTNFont);
+        logInButton.setBounds(160, 400, 250, 50);
+        
         registerButton = new JButton("Register");
-        registerButton.setPreferredSize(new Dimension(100, 25));
+        Font submitBTNFont = new Font("Arial", Font.PLAIN, 40);
+        
+        registerButton.setFont(submitBTNFont);
+        registerButton.setBounds(470, 400, 250, 50);
+        
         
         logInButton.addActionListener(this);
         registerButton.addActionListener(this);
         
-        //panel
-        JPanel userLogInPanel = new JPanel();
         
-        userLogInPanel.add(clientUsernameLabel);
-        userLogInPanel.add(clientUsernameTextField);
-        userLogInPanel.add(clientPasswordLabel);
-        userLogInPanel.add(clientPasswordTextField);
-        userLogInPanel.add(logInButton);
-        userLogInPanel.add(registerButton);
+        add(titleLabel);
+        add(clientUsernameLabel);
+        add(clientUsernameTextField);
+        add(clientPasswordLabel);
+        add(clientPasswordTextField);
+        add(logInButton);
+        add(registerButton);
         
         //window
-        add(userLogInPanel);
-        setSize(300,150);
-        setVisible(true);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
     }
     
     @Override
