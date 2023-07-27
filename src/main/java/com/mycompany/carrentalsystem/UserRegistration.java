@@ -20,7 +20,7 @@ public class UserRegistration extends JFrame implements ActionListener
     {
         setTitle("Register");
         setLayout(null);
-        setSize(350,250);
+        setSize(900,600);
         setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -36,56 +36,90 @@ public class UserRegistration extends JFrame implements ActionListener
             System.err.println(e.getMessage());
         }
         
+        Label titleLbl = new Label("REGISTER");
+        Font titleFont = new Font("Arial", Font.BOLD | Font.BOLD, 40);
+        titleLbl.setBounds(340,25,300,40);
+        titleLbl.setFont(titleFont);
+        add(titleLbl);
+        
         Label nameLabel = new Label("Name:");
-        nameLabel.setBounds(10,10,60,25);
+        Font nameFont = new Font("Arial", Font.PLAIN, 30);
+        nameLabel.setFont(nameFont);
+        nameLabel.setBounds(70,100,100,35);
         add(nameLabel);
         userNameTextField = new JTextField();
-        userNameTextField.setBounds(70, 10, 250, 25);
+        Font nameTFFont = new Font("Arial", Font.PLAIN, 25);
+        userNameTextField.setFont(nameTFFont);
+        userNameTextField.setBounds(220, 100, 590, 35);
         add(userNameTextField);
 
         
         Label ageLabel = new Label("Age:");
-        ageLabel.setBounds(10, 40, 60, 25);
+        Font ageFont = new Font("Arial", Font.PLAIN, 30);
+        ageLabel.setFont(ageFont);
+        ageLabel.setBounds(70, 150, 100, 35);
         add(ageLabel);
-        userAgeTextField = new JTextField(30);
-        userAgeTextField.setBounds(70, 40, 40, 25);
+        userAgeTextField = new JTextField();
+        Font ageTFFont = new Font("Arial", Font.PLAIN, 25);
+        userAgeTextField.setFont(ageTFFont);
+        userAgeTextField.setBounds(220, 150, 80, 35);
         userAgeTextField.setText("0");
         add(userAgeTextField);
 
         Label numberLabel = new Label("Mobile:");
-        numberLabel.setBounds(120, 40, 40, 25);
+        Font mobileFont = new Font("Arial", Font.PLAIN, 30);
+        numberLabel.setFont(mobileFont);
+        numberLabel.setBounds(340, 150, 100, 35);
         add(numberLabel);
-        userNumberTextField = new JTextField(30);
-        userNumberTextField.setBounds(170, 40, 150, 25);
+        userNumberTextField = new JTextField();
+        Font mobileTFFont = new Font("Arial", Font.PLAIN, 25);
+        userNumberTextField.setFont(mobileTFFont);
+        userNumberTextField.setBounds(470, 150, 340, 35);
         add(userNumberTextField);
 
-        Label adddressLabel = new Label("Adddress:");
-        adddressLabel.setBounds(10, 70, 60, 25);
+        Label adddressLabel = new Label("Address:");
+        Font adddressFont = new Font("Arial", Font.PLAIN, 30);
+        adddressLabel.setFont(adddressFont);
+        adddressLabel.setBounds(70, 200, 150, 35);
         add(adddressLabel);
-        userAddressTextField = new JTextField(30);
-        userAddressTextField.setBounds(70, 70, 250, 25);
+        userAddressTextField = new JTextField();
+        Font adddressTFFont = new Font("Arial", Font.PLAIN, 25);
+        userAddressTextField.setFont(adddressTFFont);
+        userAddressTextField.setBounds(220, 200, 590, 35);
         add(userAddressTextField);
 
         Label emailLabel = new Label("Email:");
-        emailLabel.setBounds(10, 100, 60, 25);
+        Font emailFont = new Font("Arial", Font.PLAIN, 30);
+        emailLabel.setFont(emailFont);
+        emailLabel.setBounds(70, 250, 100, 35);
         add(emailLabel);
-        userEmailTextField = new JTextField(30);
-        userEmailTextField.setBounds(70, 100, 250, 25);
+        userEmailTextField = new JTextField();
+        Font emailTFFont = new Font("Arial", Font.PLAIN, 25);
+        userEmailTextField.setFont(emailTFFont);
+        userEmailTextField.setBounds(220, 250, 590, 35);
         add(userEmailTextField);
 
         Label clientPasswordLabel = new Label("Password:");
-        clientPasswordLabel.setBounds(10, 130, 60, 25);
+        Font clientPasswordFont = new Font("Arial", Font.PLAIN, 30);
+        clientPasswordLabel.setFont(clientPasswordFont);
+        clientPasswordLabel.setBounds(70, 300, 150, 35);
         add(clientPasswordLabel);
-        clientPasswordTextField = new JPasswordField(20);
-        clientPasswordTextField.setBounds(70, 130, 250, 25);
+        clientPasswordTextField = new JPasswordField();
+        Font clientPasswordTFFont = new Font("Arial", Font.PLAIN, 25);
+        clientPasswordTextField.setFont(clientPasswordTFFont);
+        clientPasswordTextField.setBounds(220, 300, 590, 35);
         add(clientPasswordTextField);
 
         
         backButton = new JButton("Back");
-        backButton.setBounds(69, 160, 100, 25);
+        Font backBTNFont = new Font("Arial", Font.PLAIN, 30);
+        backButton.setFont(backBTNFont);
+        backButton.setBounds(230, 370, 150, 35);
         
         submitInfoButton = new JButton("Submit");
-        submitInfoButton.setBounds(174, 160, 100, 25);
+        Font submitBTNFont = new Font("Arial", Font.PLAIN, 30);
+        submitInfoButton.setFont(submitBTNFont);
+        submitInfoButton.setBounds(500, 370, 150, 35);
         
         backButton.addActionListener(this);
         submitInfoButton.addActionListener(this);
@@ -96,7 +130,7 @@ public class UserRegistration extends JFrame implements ActionListener
         
         //window
                 
-    }
+  }
     
     @Override
     public void actionPerformed(ActionEvent e)
