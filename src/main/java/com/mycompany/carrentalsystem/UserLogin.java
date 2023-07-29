@@ -48,7 +48,7 @@ public class UserLogin extends JFrame implements ActionListener
         clientUsernameLabel.setBounds(70,190,200,40);
         
         clientUsernameTextField = new JTextField();
-        Font clientUsernameTFFont = new Font("Arial", Font.PLAIN, 40);
+        Font clientUsernameTFFont = new Font("Arial", Font.PLAIN, 30);
         clientUsernameTextField.setFont(clientUsernameTFFont);
         clientUsernameTextField.setBounds(290, 190, 520, 40);
         
@@ -61,9 +61,7 @@ public class UserLogin extends JFrame implements ActionListener
         clientPasswordTextField = new JPasswordField();
         Font ageTFFont = new Font("Arial", Font.PLAIN, 40);
         clientPasswordTextField.setFont(ageTFFont);
-        clientPasswordTextField.setBounds(290, 290, 520, 40);
-        clientPasswordTextField.setText("0");
-        
+        clientPasswordTextField.setBounds(290, 290, 520, 40);        
         
         logInButton = new JButton("Log In");
         Font backBTNFont = new Font("Arial", Font.PLAIN, 40);
@@ -106,7 +104,7 @@ public class UserLogin extends JFrame implements ActionListener
         else if(e.getSource() == logInButton)
         {
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carentalsystem","root", "poginijem");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "Jem4764?");
 
                 PreparedStatement st = (PreparedStatement) connection.prepareStatement("SELECT * FROM userinfo WHERE userEmail=? and userPassword=?");
 
@@ -116,29 +114,10 @@ public class UserLogin extends JFrame implements ActionListener
                 if (rs.next()) 
                 {
                     dispose();
-//                    while(rs.next())
-//                    {
-//                        name = rs.getString("userName");
-//                        age = Integer.parseInt(rs.getString("userAge"));
-//                        mobile = rs.getString("userNumber");
-//                        address = rs.getString("userAddress");
-//                        email = rs.getString("userEmail");
-//                        pass = rs.getString("userPassword");
-//                        carInRent = rs.getString("carInRent");
-//
-//                        
-//                    }
-//                    user.userName = name;
-//                    user.userAge = age;
-//                    user.userNumber = mobile;
-//                    user.userAddress = address;
-//                    user.userEmail = email;
-//                    user.userPassword = pass;
-//                    user.carInRent = carInRent;
-                    CarRentalTable home = new CarRentalTable();
-                    Confirmation conf = new Confirmation();
+                    RentACar home = new RentACar();
+                    //Confirmation conf = new Confirmation();
                     home.setVisible(true);
-                    conf.setVisible(true);
+                    //conf.setVisible(true);
                     
                     JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
                 } 

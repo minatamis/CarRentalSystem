@@ -155,7 +155,7 @@ public class UserRegistration extends JFrame implements ActionListener
         {
             try 
             {
-                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/carentalsystem", "root", "poginijem");
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem","root", "Jem4764?");
 
                 PreparedStatement st = connection.prepareStatement(insertStatement);
 
